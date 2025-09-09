@@ -27,6 +27,14 @@ spec:
             - "--scheduler-conf=/etc/config/config.yaml"
             - "--namespace={{ .Release.Namespace }}"
             - "--resource-reservation-app-label={{ .Values.global.resourceReservation.appLabel }}"
+          {{- if .Values.scheduler.nodepool }}
+            {{- if .Values.scheduler.nodepool.labelKey }}
+            - "--nodepool-label-key={{ .Values.scheduler.nodepool.labelKey }}"
+            {{- end }}
+            {{- if .Values.scheduler.nodepool.labelValue }}
+            - "--partition-label-value={{ .Values.scheduler.nodepool.labelValue }}"
+            {{- end }}
+          {{- end }}
           {{- if .Values.scheduler.additionalArgs }}
             {{- toYaml .Values.scheduler.additionalArgs | nindent 12 }}
           {{- end }}
