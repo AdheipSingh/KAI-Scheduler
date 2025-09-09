@@ -2,8 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 
 global:
-  registry: registry/local/kai-scheduler
-  tag: latest
+  registry: ghcr.io/nvidia/kai-scheduler
   imagePullPolicy: IfNotPresent
   securityContext: {}
   imagePullSecrets: []
